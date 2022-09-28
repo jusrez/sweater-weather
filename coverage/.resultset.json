@@ -210,7 +210,43 @@
           1,
           1,
           1,
+          1,
           null,
+          null,
+          null
+        ]
+      },
+      "/Users/justinramirez/turing/3mod/projects/sweater-weather/spec/services/map_service_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/justinramirez/turing/3mod/projects/sweater-weather/spec/services/weather_service_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -247,6 +283,14 @@
           4,
           4,
           null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          4,
+          null,
           null
         ]
       },
@@ -267,18 +311,18 @@
           1,
           null,
           1,
-          4,
-          4,
+          5,
+          5,
           null,
           null,
           1,
-          4,
+          5,
           null,
           null,
           1,
           null,
           1,
-          4,
+          5,
           null,
           null
         ]
@@ -341,22 +385,22 @@
         "lines": [
           1,
           1,
-          4,
-          4,
+          5,
+          5,
           null,
           null,
           1,
-          4,
+          5,
           null,
           null,
           1,
           1,
-          4,
+          5,
           null,
           null
         ]
       }
     },
-    "timestamp": 1664158122
+    "timestamp": 1664326291
   }
 }
