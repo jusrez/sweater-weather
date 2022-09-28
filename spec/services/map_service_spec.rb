@@ -17,7 +17,8 @@ RSpec.describe 'Map Service' do
     
     expect(trip).to be_a(Hash)
     expect(trip).to have_key(:route)
-    expect(trip[:route][formattedTime]).to be_a String
+    
+    expect(trip[:route][:formattedTime]).to be_a String
     expect(trip[:route][:locations].first[:adminArea5]).to eq('Denver')
     expect(trip[:route][:locations].first[:adminArea3]).to eq('CO')
     expect(trip[:route][:locations].last[:adminArea5]).to eq('Pueblo')

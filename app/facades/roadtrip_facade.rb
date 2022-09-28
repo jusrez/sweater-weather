@@ -1,5 +1,5 @@
 class RoadtripFacade
-  def create_roadtrip(origin, destination)
+  def self.create_roadtrip(origin, destination)
     coordinate_data = coordinates(destination)
     weather_data = WeatherService.location_weather(coordinate_data.lat, coordinate_data.long)
     location_data = MapService.trip_details(origin, destination)

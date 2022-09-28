@@ -5,7 +5,7 @@ RSpec.describe 'Road Trip' do
     @user = User.create!(email: 'tester@testing.com', password: 'thepassword', password_confirmation: 'thepassword')
   end
 
-  it 'returns formatted roadtrip', :vcr do
+  it 'returns the start_city, end_city, travel_time, and weather_at_eta when an origin, destination, and valid_api_key are provided in a post request', :vcr do
     params = {
       origin: 'Denver,CO',
       destination: 'Pueblo,CO',
@@ -51,47 +51,49 @@ RSpec.describe 'Road Trip' do
 
     expect(roadtrip[:attributes]).to have_key(:start_city)
     expect(roadtrip[:attributes][:start_city]).to be_nil
+
     expect(roadtrip[:attributes]).to have_key(:end_city)
     expect(roadtrip[:attributes][:end_city]).to be_nil
+
     expect(roadtrip[:attributes]).to have_key(:travel_time)
-    expect(roadtrip[:attributes][:travel_time]).to be_a(String)
-    expect(roadtrip[:attributes][:travel_time]).to eq('impossible')
-    expect(roadtrip[:attributes]).to_not have_key(:weather_at_eta)
+    expect(roadtrip[:attributes][:travel_time]).to eq('impossible route')
+
+    expect(roadtrip[:attributes][:weather_at_eta]).to be_nil
   end
 
   it 'returns an error when an unassigned api key is provided' do
     params = {
       origin: 'Denver,CO',
-      destination: 'Boulder,CO',
+      destination: 'Pueblo,CO',
       api_key: '123'
     }
 
     post '/api/v1/road_trip', params: params.to_json
 
     expect(response.status).to eq(401)
-    none = JSON.parse(response.body, symbolize_names: true)
+    
+    error_response = JSON.parse(response.body, symbolize_names: true)
 
-    expect(none).to be_a(Hash)
-    expect(none).to have_key(:error)
-    expect(none.keys.length).to eq(1)
-    expect(none[:error]).to eq('Invalid credentials')
+    expect(error_response).to be_a(Hash)
+    expect(error_response).to have_key(:error)
+    expect(error_response[:error]).to eq('Invalid credentials')
   end
 
   it 'returns an error when no api key is given' do
     params = {
       origin: 'Denver,CO',
-      destination: 'Boulder,CO'
+      destination: 'Pueblo,CO'
     }
 
     post '/api/v1/road_trip', params: params.to_json
 
     expect(response.status).to eq(401)
-    none = JSON.parse(response.body, symbolize_names: true)
+    
+    error_response = JSON.parse(response.body, symbolize_names: true)
 
-    expect(none).to be_a(Hash)
-    expect(none).to have_key(:error)
-    expect(none.keys.length).to eq(1)
-    expect(none[:error]).to eq('Invalid credentials')
+    expect(error_response).to be_a(Hash)
+    expect(error_response).to have_key(:error)
+    expect(error_response[:error]).to eq('Invalid credentials')
   end
 
   it 'returns an error when no destination is given' do
@@ -103,29 +105,29 @@ RSpec.describe 'Road Trip' do
     post '/api/v1/road_trip', params: params.to_json
 
     expect(response.status).to eq(400)
-    none = JSON.parse(response.body, symbolize_names: true)
+    
+    error_response = JSON.parse(response.body, symbolize_names: true)
 
-    expect(none).to be_a(Hash)
-    expect(none).to have_key(:error)
-    expect(none.keys.length).to eq(1)
-    expect(none[:error]).to eq('you must include origin and destination')
+    expect(error_response).to be_a(Hash)
+    expect(error_response).to have_key(:error)
+    expect(error_response[:error]).to eq('Both origin and destination must be included')
   end
 
   it 'returns an error when no origin is given' do
     params = {
-      destination: 'Boulder,CO',
+      destination: 'Pueblo,CO',
       api_key: User.last.api_key
     }
 
     post '/api/v1/road_trip', params: params.to_json
 
     expect(response.status).to eq(400)
-    none = JSON.parse(response.body, symbolize_names: true)
 
-    expect(none).to be_a(Hash)
-    expect(none).to have_key(:error)
-    expect(none.keys.length).to eq(1)
-    expect(none[:error]).to eq('Both origin and destination must be included')
+    error_response = JSON.parse(response.body, symbolize_names: true)
+
+    expect(error_response).to be_a(Hash)
+    expect(error_response).to have_key(:error)
+    expect(error_response[:error]).to eq('Both origin and destination must be included')
   end
 
   it 'returns an error when no JSON payload is provided' do

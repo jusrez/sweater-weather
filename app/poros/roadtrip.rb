@@ -1,6 +1,7 @@
 class Roadtrip
-  attr_reader :start_city, :end_city, :travel_time, :weather_at_eta
+  attr_reader :id, :start_city, :end_city, :travel_time, :weather_at_eta
   def initialize(trip_data, weather_data)
+    @id = nil
     @start_city = origin(trip_data)
     @end_city = destination(trip_data)
     @travel_time = trip_time(trip_data)
@@ -8,7 +9,7 @@ class Roadtrip
   end
 
   def trip_time(trip_data)
-    formatted_time = location_data[:route][:formattedTime]
+    formatted_time = trip_data[:route][:formattedTime]
     if formatted_time == nil
       return 'impossible route'
     else
@@ -17,15 +18,23 @@ class Roadtrip
   end
 
   def origin(trip_data)
-    city = trip_data[:route][:locations][0][:adminArea5]
-    state = trip_data[:route][:locations][0][:adminArea3]
-    return "#{city}, #{state}"
+    if trip_data[:info][:messages][0] == "We are unable to route with the given locations."
+      return nil
+    else 
+      city = trip_data[:route][:locations][0][:adminArea5]
+      state = trip_data[:route][:locations][0][:adminArea3]
+      return "#{city}, #{state}"
+    end
   end
 
   def destination(trip_data)
-    city = trip_data[:route][:locations][1][:adminArea5]
-    state = trip_data[:route][:locations][1][:adminArea3]
-    return "#{city}, #{state}"
+    if trip_data[:info][:messages][0] == "We are unable to route with the given locations."
+      return nil
+    else
+      city = trip_data[:route][:locations][1][:adminArea5]
+      state = trip_data[:route][:locations][1][:adminArea3]
+      return "#{city}, #{state}"
+    end
   end
 
   def destination_weather(weather_data)
@@ -35,7 +44,7 @@ class Roadtrip
       eta = @travel_time.to_i
       hourly_weather = weather_data[:hourly][eta]
     {
-      temperature: hourly_weather[:temp]
+      temperature: hourly_weather[:temp],
       conditions: hourly_weather[:weather][0][:description]
     }
     end
