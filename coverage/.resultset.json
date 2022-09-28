@@ -212,6 +212,7 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           null
@@ -227,7 +228,7 @@
           1,
           null,
           1,
-          5,
+          7,
           null,
           null
         ]
@@ -239,23 +240,26 @@
           null
         ]
       },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/controllers/api/v1/sessions_controller.rb": {
+      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/controllers/roadtrip_controller.rb": {
         "lines": [
           1,
           1,
-          5,
-          5,
+          6,
+          6,
           1,
-          4,
-          1,
-          null,
-          3,
-          null,
-          null,
-          null,
+          0,
           1,
           1,
-          12,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          27,
           null,
           null
         ]
@@ -266,16 +270,23 @@
           null
         ]
       },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/serializers/users_serializer.rb": {
+      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/facades/roadtrip_facade.rb": {
         "lines": [
           1,
           1,
+          0,
+          0,
+          0,
+          0,
+          null,
           null,
           1,
+          0,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1664333472
+    "timestamp": 1664343171
   }
 }

@@ -5,6 +5,11 @@ class MapService
     parse_response(response)
   end
 
+  def self.trip_details(origin, destination)
+    response = conn.get("/directions/v2/route?from=#{origin}&to=#{destination}")
+    parse_response(response)
+  end
+
   def self.parse_response(response)
     JSON.parse(response.body, symbolize_names: true) if response.status == 200
   end
