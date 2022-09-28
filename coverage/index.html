@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-09-27T22:02:23-04:00">2022-09-27T22:02:23-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-09-27T22:51:12-04:00">2022-09-27T22:51:12-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.43
+         1.44
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>65</b> relevant lines,
-    <span class="green"><b>65</b> lines covered</span> and
+    <b>66</b> relevant lines,
+    <span class="green"><b>66</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -71,13 +71,13 @@
       <tbody>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#a966f70c4729b8de6077f70af122cfc169a34711" class="src_link" title="app/controllers/api/v1/users_controller.rb">app/controllers/api/v1/users_controller.rb</a></td>
+            <td class="strong t-file__name"><a href="#b83bc922df3c9423108e6d65550d7454e81515a5" class="src_link" title="app/controllers/api/v1/sessions_controller.rb">app/controllers/api/v1/sessions_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">17</td>
             <td class="cell--number">11</td>
             <td class="cell--number">11</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">3.36</td>
+            <td class="cell--number">3.18</td>
             
           </tr>
         
@@ -110,7 +110,7 @@
             <td class="cell--number">7</td>
             <td class="cell--number">7</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.14</td>
+            <td class="cell--number">1.57</td>
             
           </tr>
         
@@ -249,9 +249,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#c8b110823e2d2980c87a76d4090ce2861150bb18" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">8</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">5</td>
+            <td class="cell--number">9</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">6</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -274,9 +274,9 @@
 
       <div class="source_files">
       
-        <div class="source_table" id="a966f70c4729b8de6077f70af122cfc169a34711">
+        <div class="source_table" id="b83bc922df3c9423108e6d65550d7454e81515a5">
   <div class="header">
-    <h3>app/controllers/api/v1/users_controller.rb</h3>
+    <h3>app/controllers/api/v1/sessions_controller.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -307,7 +307,7 @@
 
             
 
-            <code class="ruby">class Api::V1::UsersController &lt; ApplicationController</code>
+            <code class="ruby">class Api::V1::SessionsController &lt; ApplicationController</code>
           </li>
         </div>
       
@@ -323,41 +323,41 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="3">
-            <span class="hits">7</span>
-            
-
-            
-
-            <code class="ruby">    user = User.new(user_params)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="7" data-linenumber="4">
-            <span class="hits">7</span>
-            
-
-            
-
-            <code class="ruby">    if user.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="5">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      render json: UsersSerializer.new(user), status: 201</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="5" data-linenumber="6">
+          <li class="covered" data-hits="5" data-linenumber="3">
             <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    user = User.find_by(email: session_params[:email]) if session_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="4">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    if user&amp;.authenticate(session_params[:password])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      render json: UsersSerializer.new(user), status: 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="6">
+            <span class="hits">4</span>
             
 
             
@@ -389,13 +389,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="9">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="3" data-linenumber="9">
+            <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">      render json: { error: user.errors.full_messages * &#39;, &#39; }, status: 400</code>
+            <code class="ruby">      render json: { error: &#39;Invalid credentials&#39; }, status: 401</code>
           </li>
         </div>
       
@@ -450,13 +450,13 @@
 
             
 
-            <code class="ruby">  def user_params</code>
+            <code class="ruby">  def session_params</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="15">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="12" data-linenumber="15">
+            <span class="hits">12</span>
             
 
             
@@ -724,8 +724,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="9">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="5" data-linenumber="9">
+            <span class="hits">5</span>
             
 
             
@@ -2951,8 +2951,8 @@
     
 
     <div class="t-line-summary">
-      <b>5</b> relevant lines.
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>6</b> relevant lines.
+      <span class="green"><b>6</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -3019,13 +3019,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="6">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      post &#39;/sessions&#39;, to: &#39;sessions#create&#39;</code>
           </li>
         </div>
       
@@ -3036,12 +3036,23 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
             
             
 
