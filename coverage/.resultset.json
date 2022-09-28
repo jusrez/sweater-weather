@@ -216,46 +216,23 @@
           null
         ]
       },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/spec/services/map_service_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/spec/services/weather_service_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/controllers/api/v1/forecasts_controller.rb": {
+      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/controllers/api/v1/users_controller.rb": {
         "lines": [
           1,
           1,
+          7,
+          7,
+          2,
+          5,
+          1,
+          null,
           4,
+          null,
+          null,
+          null,
+          1,
+          1,
+          7,
           null,
           null
         ]
@@ -266,141 +243,38 @@
           null
         ]
       },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/serializers/forecast_serializer.rb": {
+      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/models/user.rb": {
         "lines": [
           1,
           1,
+          1,
+          1,
           null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/models/application_record.rb": {
+        "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/facades/forecast_facade.rb": {
-        "lines": [
-          1,
-          1,
-          4,
-          4,
-          null,
-          null,
-          1,
-          4,
-          null,
-          null,
-          1,
-          4,
-          null,
-          null
-        ]
-      },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/poros/location.rb": {
+      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/serializers/users_serializer.rb": {
         "lines": [
           1,
           1,
           null,
           1,
-          4,
-          4,
-          null,
-          null
-        ]
-      },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/services/map_service.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          5,
-          5,
-          null,
-          null,
-          1,
-          5,
-          null,
-          null,
-          1,
-          null,
-          1,
-          5,
-          null,
-          null
-        ]
-      },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/poros/forecast.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          4,
-          4,
-          4,
-          4,
-          null,
-          null,
-          1,
-          null,
-          4,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          4,
-          null,
-          20,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          4,
-          null,
-          32,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/justinramirez/turing/3mod/projects/sweater-weather/app/services/weather_service.rb": {
-        "lines": [
-          1,
-          1,
-          5,
-          5,
-          null,
-          null,
-          1,
-          5,
-          null,
-          null,
-          1,
-          1,
-          5,
-          null,
           null
         ]
       }
     },
-    "timestamp": 1664326291
+    "timestamp": 1664330543
   }
 }
